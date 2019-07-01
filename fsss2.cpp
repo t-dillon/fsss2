@@ -152,6 +152,8 @@ const t_128 constraints::bitsForHouse[27] = { //1 for the 9 cells in the house
 //const uint32 constraints::topCellsHouses = 0x00FC007F; //000111111000000000001111111
 
 #ifdef USE_LOCKED_CANDIDATES
+extern bool do_locked_candidates;
+
 const tripletMask constraints::tripletMasks[54] = {
 	{{0x0000000000000007,0x0000000000000000}, {0x00000000000001F8,0x0000000000000000}, {0x00000000001C0E00,0x0000000000000000}, },
 	{{0x0000000000000038,0x0000000000000000}, {0x00000000000001C7,0x0000000000000000}, {0x0000000000E07000,0x0000000000000000}, },
@@ -727,7 +729,7 @@ single_found:
 
 	//locked candidates
 #ifdef USE_LOCKED_CANDIDATES
-	if(lockedDone == 0) {
+	if(lockedDone == 0 && do_locked_candidates) {
 		bool found = false;
 		//if a digit in a row is within a single triplet, then remove digit from the other two box triplets and vice versa
 		for (int d = 0; d < 9; d++) {

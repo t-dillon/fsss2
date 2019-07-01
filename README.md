@@ -1,4 +1,2 @@
-fsss2
-=====
-
-Fast Simple Sudoku Solver 2
+This is a fork of dobrichev/fsss2 with a few changes to facilitate comparison
+and use with the benchmark program in t-dillon/tdoku
